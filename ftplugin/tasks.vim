@@ -33,9 +33,16 @@ fun! s:initVariable(var, value)
   return 0
 endfun
 
-let b:mucomplete_wordlist           = ['@critical', '@high', '@low', '@due']
-let b:mucomplete_chain              = ['list', 'keyn']
-let g:mucomplete#can_complete.tasks = {'list': { t -> t =~# g:TasksAttributeMarker }}
+if exists('g:loaded_mucomplete')
+  let b:mucomplete_wordlist           = ['@critical', '@high', '@low', '@due']
+  let b:mucomplete_chain              = ['list', 'keyn']
+  let g:mucomplete#can_complete       = get(g:, 'mucomplete#can_complete', {})
+  let g:mucomplete#can_complete.tasks = {'list': { t -> t =~# g:TasksAttributeMarker }}
+
+  if !exists('#MUcompleteAuto')
+    imap <buffer> @ @<Plug>(MUcompleteFwd)
+  endif
+endif
 
 call s:initVariable('g:TasksMarkerBase', '☐')
 call s:initVariable('g:TasksMarkerDone', '✔')

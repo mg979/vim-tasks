@@ -53,8 +53,8 @@ hi def link tTaskCancelled Comment
 hi def link tProject Constant
 if has('nvim')
   hi def tCriticalPriority ctermbg=9 ctermfg=15 cterm=NONE guibg=#ff0000 guifg=#FFFFFF gui=NONE
-  hi def tHighPriority ctermbg=186 ctermfg=0 cterm=NONE guibg=#dada93 guifg=#000000 gui=NONE
-  hi def tLowPriority ctermbg=150 ctermfg=0 cterm=NONE guibg=#a8ce93 guifg=#000000 gui=NONE
+  hi def tHighPriority ctermbg=208 ctermfg=0 cterm=NONE guibg=#ff8700 guifg=#000000 gui=NONE
+  hi def tLowPriority ctermbg=186 ctermfg=0 cterm=NONE guibg=#dada93 guifg=#000000 gui=NONE
 else
   hi def link tCriticalPriority ErrorMsg
   hi def link tHighPriority WarningMsg
